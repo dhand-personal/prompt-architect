@@ -1,0 +1,29 @@
+{
+  "skill_name": "prompt-architect",
+  "evals": [
+    {
+      "id": 1,
+      "prompt": "Can you look at this prompt and tell me if it's any good? \"You are a helpful assistant. Answer the customer's question about their order status based on what they tell you.\"",
+      "expected_output": "A gap analysis (not an immediate rewrite) that scores the prompt against the 6-component framework in plain language, calls out the missing guardrail (no instruction for what to do without real order data, so it may invent details) and missing output format, names the single highest-impact fix, and ends by asking whether they want a rewrite.",
+      "files": []
+    },
+    {
+      "id": 2,
+      "prompt": "I want a prompt for an AI that turns a list of blog post titles into 5 LinkedIn post ideas for each title.",
+      "expected_output": "A short round of plain-language intake questions (tone/voice, whether it can pull in outside context or must stick to the blog content, what a 'good' idea looks like, format/length) before drafting, then a full prompt covering all 6 components, in plain non-jargon language appropriate for a non-technical user.",
+      "files": []
+    },
+    {
+      "id": 3,
+      "prompt": "I need something that summarizes long call transcripts into 3 bullet points. What Claude model should I use, and can you write me the prompt?",
+      "expected_output": "Handles the prompt itself completely first (intake, draft, review checkpoint), and only after that addresses the model question as its own separate, final message. Recommends a tier using the tier framework, checks official Anthropic docs rather than memory or third-party blogs, and caveats the recommendation.",
+      "files": []
+    },
+    {
+      "id": 4,
+      "prompt": "Can you clean this up? \"You are an assistant. You are a helpful assistant that helps with customer service. Always be helpful and always be polite and always be professional. Before you answer, check: did you use the right tone? Did you check the tone is professional? Did you check the tone is polite? Did you check the tone is helpful? Did you check you didn't say anything rude? Did you check you didn't say anything unprofessional? Did you check the answer is correct? Did you check the answer makes sense?\"",
+      "expected_output": "Gap analysis flags the redundant role/instruction restatement (helpful/polite/professional stated multiple times) and the bloated 8-item self-verification checklist as a token-efficiency problem, not just a style nitpick — explains that the repeated checklist items cost tokens on every call without adding real coverage, and that the checklist doesn't cover the failure modes that actually matter (no guardrail for missing info, no real success criteria, no output format). Offers the rewrite only after asking.",
+      "files": []
+    }
+  ]
+}
